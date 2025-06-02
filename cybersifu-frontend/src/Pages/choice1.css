@@ -1,0 +1,115 @@
+/* src/Pages/ChoiceResult1Page.css */
+.choice-result-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+    color: #0f0;
+    font-family: monospace;
+    padding: 30px; /* Increased */
+    box-sizing: border-box;
+}
+
+.big-green-rectangle {
+    width: 85%; /* Slightly increased */
+    max-width: 900px; /* Increased */
+    padding: 40px; /* Increased */
+    background-color: rgba(0, 50, 0, 0.7);
+    border: 4px solid #0f0; /* Increased */
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.8); /* Increased spread and intensity */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.4em; /* Increased base font size */
+}
+
+.big-green-rectangle h2 {
+    color: #0f0;
+    margin-bottom: 30px; /* Increased */
+    font-size: 1.8em; /* Increased */
+    text-shadow: 0 0 12px rgba(0, 255, 0, 0.8); /* Increased */
+}
+
+.river-god {
+    white-space: pre-wrap;
+    font-size: 2.5em; /* Increased */
+    line-height: 0.7;
+    margin-bottom: 30px; /* Increased */
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased */
+    margin-top: 40px; /* Increased */
+    width: 100%;
+    max-width: 500px; /* Increased */
+}
+
+.options button {
+    background-color: #004d00;
+    color: white;
+    padding: 18px 30px; /* Increased */
+    border: 2px solid #0f0; /* Increased */
+    border-radius: 8px; /* Increased */
+    font-size: 1.3em; /* Increased */
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.options button:hover {
+    background-color: #006600;
+    border-color: #00ff00;
+}
+
+.big-green-rectangle p {
+    margin-bottom: 20px; /* Increased */
+}
+
+/* --- NEW STYLES FOR MESSAGES --- */
+.message-container, .rickroll-message-container {
+    margin-top: 30px; /* Increased */
+    padding: 30px; /* Increased */
+    border: 2px dashed #0f0; /* Increased */
+    border-radius: 10px; /* Increased */
+    background-color: rgba(0, 70, 0, 0.5);
+    color: #0f0;
+    font-size: 1.3em; /* Increased */
+    max-width: 700px; /* Increased */
+}
+
+.message-container p, .rickroll-message-container p {
+    margin-bottom: 15px; /* Increased */
+}
+
+.reward-link {
+    color: #00ffff;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+    padding: 8px; /* Increased */
+    transition: color 0.3s ease;
+}
+
+.reward-link:hover {
+    color: #00ff00;
+}
+
+.rickroll-message-container {
+    font-size: 1.8em; /* Significantly Larger */
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(0, 255, 0, 0.8); /* Increased */
+    animation: pulse 1.5s infinite alternate;
+}
+
+/* Optional: Add a pulse animation for the rickroll message */
+@keyframes pulse {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(1.05); opacity: 0.9; }
+}

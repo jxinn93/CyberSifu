@@ -1,0 +1,63 @@
+/* src/components/AladdinLampDisplay.css */
+.aladdin-lamp-display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.aladdin-lamp-drawing {
+    font-family: monospace;
+    font-size: 3em; /* Larger */
+    line-height: 0.8;
+    color: #0f0;
+    margin-bottom: 30px;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
+}
+
+.aladdin-lamp-drawing pre {
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+/* --- NEW STYLES FOR ALADDIN'S DIALOGUE FRAME --- */
+.aladdin-dialogue-frame {
+    position: relative;
+    margin-top: 20px;
+    padding: 25px; /* Matches thinking-frame padding */
+    background-color: rgba(0, 50, 0, 0.7);
+    border: 2px solid #0f0;
+    max-width: 450px; /* Slightly narrower than kid's to fit */
+    margin: 20px auto;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
+    font-size: 1.4em; /* Matches thinking-frame text size */
+}
+
+/* Pointer for Aladdin's thinking frame (points left from the right side) */
+.aladdin-dialogue-frame::before {
+    content: '';
+    position: absolute;
+    top: 20px; /* Position vertically (adjust as needed) */
+    right: -15px; /* Position to the right outside the frame */
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #0f0; /* Pointer color, points left */
+    filter: drop-shadow(0 2px 2px rgba(0, 255, 0, 0.3));
+}
+
+.aladdin-dialogue-frame::after {
+    content: '';
+    position: absolute;
+    top: 20px; /* Match vertical position of ::before */
+    right: -12px; /* Position inside the outer pointer */
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid rgba(0, 50, 0, 0.7); /* Inner pointer color */
+}

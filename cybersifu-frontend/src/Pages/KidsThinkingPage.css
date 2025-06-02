@@ -1,0 +1,122 @@
+/* src/components/KidsThinkingPage.css */
+.kids-thinking-page-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 40px;
+}
+
+.left-section, .right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 100%;
+    text-align: center;
+}
+
+/* Visibility classes for the right section (Aladdin) */
+.right-section.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.right-section.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+}
+
+/* --- MODIFIED: Kid Drawing Size --- */
+.kid-drawing {
+    font-family: monospace;
+    font-size: 2.5em; /* INCREASED: Make the drawing much larger */
+    line-height: 0.8;
+    text-align: center;
+    color: #0f0;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.kid-head, .kid-body {
+    white-space: pre;
+    display: block;
+    margin: 0 auto;
+}
+
+.kid-head span {
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    text-align: center;
+}
+
+/* --- MODIFIED: Thinking Frame Text Size --- */
+.thinking-frame {
+    position: relative;
+    margin-top: 20px;
+    padding: 25px; /* Increased padding */
+    background-color: rgba(0, 50, 0, 0.7);
+    border: 2px solid #0f0;
+    max-width: 550px; /* Increased max-width */
+    margin: 20px auto;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
+    font-size: 1.4em; /* INCREASED: Larger text inside the thinking frame */
+}
+
+.thinking-frame::before {
+    content: '';
+    position: absolute;
+    bottom: -20px; /* Adjusted position due to larger size */
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent; /* Adjusted size */
+    border-right: 20px solid transparent; /* Adjusted size */
+    border-top: 20px solid #0f0; /* Adjusted size */
+    filter: drop-shadow(0 2px 2px rgba(0, 255, 0, 0.3));
+}
+
+.thinking-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -17px; /* Adjusted position due to larger size */
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 17px solid transparent; /* Adjusted size */
+    border-right: 17px solid transparent; /* Adjusted size */
+    border-top: 17px solid rgba(0, 50, 0, 0.7); /* Adjusted size */
+}
+
+.kids-thinking-page-container button {
+    margin-top: 30px;
+    padding: 18px 35px; /* Slightly larger button */
+    font-size: 1.3em; /* Larger button text */
+}
+
+/* --- MODIFIED: Aladdin Lamp Display Size --- */
+.aladdin-lamp-display-container .aladdin-lamp-drawing { /* Target drawing within its container */
+    font-family: monospace;
+    font-size: 3em; /* INCREASED: Make the lamp drawing much larger */
+    line-height: 0.8;
+    color: #0f0;
+    margin-bottom: 30px;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
+}
+
+.aladdin-lamp-display-container .dialog-frame { /* Target dialog frame within Aladdin component */
+    font-size: 1.4em; /* INCREASED: Larger text for Aladdin's dialogue */
+    padding: 25px;
+    max-width: 450px;
+}
