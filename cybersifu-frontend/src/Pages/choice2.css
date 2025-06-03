@@ -220,3 +220,219 @@
     border: 3px solid #ff0000;
     color: #ff0000;
 }
+
+/* --- Phishing Form Styles --- */
+.phishing-form-container {
+    margin-top: 30px;
+    padding: 40px; /* Increased padding */
+    border: 3px solid #ff0000;
+    border-radius: 10px;
+    background-color: rgba(60, 0, 0, 0.9);
+    color: #ffcccc;
+    max-width: 750px; /* Increased max-width significantly */
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+    align-self: center;
+}
+
+.phishing-form-container .form-intro {
+    font-size: 1.4em; /* Increased font size */
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 25px; /* Increased margin */
+}
+
+.phishing-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased gap between form groups */
+    margin-top: 25px;
+    align-items: center;
+}
+
+.phishing-form .form-group {
+    width: 90%; /* Made form groups wider */
+    text-align: left;
+}
+
+.phishing-form label {
+    display: block;
+    margin-bottom: 8px; /* Increased margin below label */
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.25em; /* Increased font size */
+}
+
+.phishing-form input[type="text"],
+.phishing-form input[type="password"] {
+    width: 100%;
+    padding: 15px; /* Increased input padding */
+    border: 1px solid #8b0000;
+    border-radius: 5px;
+    background-color: #330000;
+    color: #00ff00;
+    font-size: 1.15em; /* Increased input font size */
+    font-family: 'monospace';
+}
+
+.phishing-form input[type="text"]::placeholder,
+.phishing-form input[type="password"]::placeholder {
+    color: #660000;
+}
+
+.phishing-form .submit-button {
+    background-color: #8b0000;
+    border-color: #ff0000;
+    color: white;
+    padding: 15px 30px; /* Increased button padding */
+    font-size: 1.3em; /* Increased button font size */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-top: 30px; /* Increased margin top */
+    width: 90%; /* Made button wider */
+    max-width: 400px; /* Optional: limit max width of button */
+}
+
+.phishing-form .submit-button:hover {
+    background-color: #a52a2a;
+    border-color: #ff4500;
+}
+.warning-icon {
+    position: absolute;
+    top: 15px; /* Adjust as needed for padding */
+    right: 15px; /* Adjust as needed for padding */
+    width: 45px; /* Size of the icon */
+    height: 45px; /* Size of the icon */
+    background-color: #ffcc00; /* Yellow background for warning */
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle shape */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2em; /* Size of the exclamation mark */
+    font-weight: bold;
+    color: #333; /* Dark color for exclamation mark */
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+    transition: transform 0.2s ease;
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+.warning-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.warning-prompt-box {
+    background-color: rgba(0, 0, 0, 0.95); /* Very dark background */
+    border: 3px solid #ffcc00; /* Yellow warning border */
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    color: #ffcc00; /* Yellow text for warning */
+    font-size: 1.3em;
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    /* Occupy full space of the container */
+    position: absolute; /* Position over the form */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box; /* Include padding in width/height */
+    justify-content: center; /* Vertically center content */
+    align-items: center; /* Horizontally center content */
+}
+
+.warning-prompt-box .prompt-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #fff; /* White text for clarity */
+}
+
+.warning-prompt-box .prompt-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 80%; /* Options buttons width */
+    max-width: 450px;
+}
+
+.prompt-button {
+    background-color: #555;
+    color: white;
+    padding: 12px 20px;
+    border: 2px solid #777;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.prompt-button:hover {
+    background-color: #777;
+    border-color: #999;
+}
+
+.prompt-button.report-button {
+    background-color: #007bff; /* Blue for reporting */
+    border-color: #0056b3;
+}
+
+.prompt-button.report-button:hover {
+    background-color: #0056b3;
+    border-color: #007bff;
+}
+
+.prompt-button.report-button a {
+    color: white;
+    text-decoration: underline;
+    font-size: 0.9em;
+}
+
+.prompt-button.share-button {
+    background-color: #28a745; /* Green for sharing */
+    border-color: #1e7e34;
+}
+
+.prompt-button.share-button:hover {
+    background-color: #1e7e34;
+    border-color: #28a745;
+}
+
+.report-outcome-box {
+    background-color: rgba(30, 30, 30, 0.95);
+    border: 3px solid #00ff00; /* Green for positive outcome */
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    color: #00ff00;
+    font-size: 1.4em;
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.7);
+    /* Occupy full space of the container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.report-outcome-box .outcome-text {
+    font-weight: bold;
+    color: #fff; /* White for the outcome message */
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.report-outcome-box .next-button {
+    background-color: #004d00;
+    border-color: #0f0;
+}

@@ -1,30 +1,29 @@
 // src/Pages/ChoiceResult2Page.jsx
-import React, { useState, useEffect, useRef } from 'react'; // Re-added useEffect, useRef for countdown
-import './choice2.css';
+import React, { useState, useEffect, useRef } from 'react';
+import './choice2.css'; // Corrected import path (assuming this is the correct filename now)
 
 function ChoiceResult2Page() {
-  // State to manage which content to display
-  // Re-added download-related states
   const [currentChoice2Display, setCurrentChoice2Display] = useState('options'); 
-  // State for the phishing quiz answer (from Option 2 path)
   const [selectedPhishingAnswers, setSelectedPhishingAnswers] = useState([]);
-  // State for the post-download quiz answer (from download path)
   const [selectedPostDownloadAnswers, setSelectedPostDownloadAnswers] = useState([]);
   
-  // States for the phishing form inputs (optional, can be basic to just show the form)
+  // States for the phishing form inputs
   const [bankAccount, setBankAccount] = useState('');
   const [cvv, setCvv] = useState('');
   const [eWalletPin, setEWalletPin] = useState('');
 
-  // State for countdown timer (reintroduced)
+  // State to manage sub-states within the phishing form (form, warningPrompt, reportOutcome)
+  const [currentPhishingFormSubState, setCurrentPhishingFormSubState] = useState('form');
+  const [reportOutcomeMessage, setReportOutcomeMessage] = useState(''); // To store "You win!" or "At least..."
+  
   const [countdown, setCountdown] = useState(5);
-  const countdownRef = useRef(null); // Ref to hold the interval ID
+  const countdownRef = useRef(null);
 
   // --- Handlers for initial options ---
   const handleOption1Click = () => {
-    // This button transitions to the download screen
     setCurrentChoice2Display('downloading');
     setCountdown(5); // Reset countdown for new download
+    setCurrentPhishingFormSubState('form'); // Ensure sub-state is 'form' when starting download flow
   };
 
   const handleOption2Click = () => {
@@ -64,7 +63,7 @@ function ChoiceResult2Page() {
     setSelectedPhishingAnswers([]); // Clear previous selections
   };
 
-  // --- Handlers for downloading phase (reintroduced) ---
+  // --- Handlers for downloading phase ---
   useEffect(() => {
     if (currentChoice2Display === 'downloading') {
       countdownRef.current = setInterval(() => {
@@ -85,12 +84,14 @@ function ChoiceResult2Page() {
         clearInterval(countdownRef.current);
       }
     };
-  }, [currentChoice2Display]); // Re-run effect when display state changes
+  }, [currentChoice2Display]);
 
+  // **FIXED LOGIC HERE**
   const handleContinueDownload = () => {
-    // User explicitly chose to continue -> Navigate to Phishing Form
+    // User explicitly chose to continue -> Navigate to Phishing Form (as intended)
     clearInterval(countdownRef.current); // Stop countdown immediately
     setCurrentChoice2Display('phishingForm'); 
+    setCurrentPhishingFormSubState('form'); // Make sure the form inputs are shown initially
   };
 
   const handleStopDownload = () => {
@@ -104,7 +105,7 @@ function ChoiceResult2Page() {
     setSelectedPostDownloadAnswers([]); // Clear selections for next quiz attempt
   };
 
-  // --- Handlers for post-download quiz (reintroduced) ---
+  // --- Handlers for post-download quiz ---
   const handlePostDownloadCheckboxChange = (event) => {
     const { value, checked } = event.target;
     if (checked) {
@@ -137,13 +138,26 @@ function ChoiceResult2Page() {
     setSelectedPostDownloadAnswers([]); // Clear previous selections
   };
 
-
-  // --- Handlers for phishing form ---
+  // --- Handlers for phishing form (added back) ---
   const handleSubmitPhishingForm = (e) => {
     e.preventDefault(); // Prevent default form submission behavior
     // In a real scenario, this would send data to a malicious server.
     // Here, it just leads to the "hacked" message.
     setCurrentChoice2Display('hackedMessage');
+  };
+
+  // Handlers for warning prompt options
+  const handleReportScamLink = () => {
+    // This will open the new Google Safe Browse report URL in a new tab
+    window.open("https://safebrowsing.google.com/safebrowsing/report-url", "_blank"); 
+    setReportOutcomeMessage("You win!");
+    setCurrentPhishingFormSubState('reportOutcome');
+  };
+
+  // **MODIFIED LOGIC HERE**
+  const handleShareExperience = () => {
+    setReportOutcomeMessage("You win, Be careful next time, CyberSifu always be with you");
+    setCurrentPhishingFormSubState('reportOutcome');
   };
 
   return (
@@ -152,10 +166,10 @@ function ChoiceResult2Page() {
         {/* Kid's drawing */}
         <div className="kid-drawing-hacker-scenario">
           <pre>
-            {' | --- |\n'}
-            {' |     |\n'}
-            {' | --- |\n'}
-            {'   /|\\\n'}
+            {' |   --- |\n'}
+            {' |       |\n'}
+            {' |   --- |\n'}
+            {'    /|\\\n'}
             {'   / | \\\n'}
           </pre>
           <p className="character-name">Kid</p>
@@ -177,7 +191,7 @@ function ChoiceResult2Page() {
         {/* Initial options phase */}
         {currentChoice2Display === 'options' && (
           <>
-           <p className="dialogue kid">Kid: Hi, wanna ask can I get the skin cheaper?</p>
+            <p className="dialogue kid">Kid: Hi, wanna ask can I get the skin cheaper?</p>
             <p className="dialogue hacker">Hacker: Sure, I got friend that work in TAMI studio, he can directly give the skin to your game account.</p>
             <p className="dialogue kid">Kid: Really? Not a scam?</p>
             <p className="dialogue hacker">Hacker: Come on Bro, my friend just want to share his kindness, limited spot Tau? </p>
@@ -191,6 +205,7 @@ function ChoiceResult2Page() {
               </a>
             </p>
 
+
             <div className="options">
               <button onClick={handleOption1Click}>[1] Wahhh, I want it [click the link]</button>
               <button onClick={handleOption2Click}>[2] Hmmm, look so weird [didn't click the link]</button>
@@ -198,7 +213,74 @@ function ChoiceResult2Page() {
           </>
         )}
 
-        {/* Downloading phase (reintroduced) */}
+        {/* Message for Option 2 (didn't click link) */}
+        {currentChoice2Display === 'option2Message' && (
+          <div className="message-container">
+            <p>Yeah, you save money for your lunch!</p>
+            <p>Take care! You lose thousands while you click the suspicious link.</p>
+            <p>Your mom said if you get first 10 in next examination, she will reward you the skin <span className="god-message">[believe me, I am god]</span>.</p>
+            <button onClick={handleFinishPhishingQuizClick} className="next-button">Finish the quiz then I will cast a spell on your mom</button>
+          </div>
+        )}
+
+        {/* Phishing Quiz */}
+        {currentChoice2Display === 'quiz' && (
+          <div className="quiz-container">
+            <h3>Which of the following is/are not the phishing link?</h3>
+            <div className="quiz-options">
+              <label>
+                <input
+                  type="checkbox"
+                  name="phishing-quiz"
+                  value="a"
+                  checked={selectedPhishingAnswers.includes('a')}
+                  onChange={handlePhishingCheckboxChange}
+                />
+                a. https://paypaI.com (Note: 'I' is lowercase L)
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="phishing-quiz"
+                  value="b"
+                  checked={selectedPhishingAnswers.includes('b')}
+                  onChange={handlePhishingCheckboxChange}
+                />
+                b. https://tinyurl.com/maybank
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="phishing-quiz"
+                  value="c"
+                  checked={selectedPhishingAnswers.includes('c')}
+                  onChange={handlePhishingCheckboxChange}
+                />
+                c. https://spectrum.um.edu.my
+              </label>
+            </div>
+            <button onClick={handleSubmitPhishingQuiz} className="submit-button">Submit Answer</button>
+          </div>
+        )}
+
+        {/* Phishing Quiz Feedback */}
+        {currentChoice2Display === 'correctAnswer' && (
+          <div className="quiz-feedback correct">
+            <p>Your win!</p>
+            <p>Congratulations, you correctly identified the safe link!</p>
+            <button onClick={() => setCurrentChoice2Display('options')} className="next-button">Back to conversation</button>
+          </div>
+        )}
+
+        {currentChoice2Display === 'incorrectAnswer' && (
+          <div className="quiz-feedback incorrect">
+            <p>Try again!</p>
+            <p>That's not quite right. Phishing links often look legitimate but have subtle differences or use URL shorteners to hide their true destination. Education domains (.edu.my) are generally trustworthy.</p>
+            <button onClick={handlePhishingTryAgain} className="try-again-button">Back to Quiz</button>
+          </div>
+        )}
+
+        {/* Downloading phase */}
         {currentChoice2Display === 'downloading' && (
           <div className="download-container">
             <p className="download-text">Downloading deckaheraouy.apk</p>
@@ -210,7 +292,7 @@ function ChoiceResult2Page() {
           </div>
         )}
 
-        {/* Download stopped message (from Option 2 during download) (reintroduced) */}
+        {/* Download stopped message (from Option 2 during download) */}
         {currentChoice2Display === 'downloadStopped' && (
           <div className="message-container">
             <p className="correct-feedback-text">hu~ Luckily you Stop it</p>
@@ -220,18 +302,18 @@ function ChoiceResult2Page() {
           </div>
         )}
 
-        {/* Download Loss message (if countdown finishes without any button click) (reintroduced) */}
+        {/* Download Loss message (if countdown finishes or continue is clicked) */}
         {currentChoice2Display === 'downloadLoss' && (
-          <div className="message-container loss-message"> 
+          <div className="message-container loss-message">
             <p className="lose-text">You Lose!</p>
-            <p>The suspicious download completed because you didn't stop it in time.</p>
+            <p>The suspicious download completed or you chose to continue it.</p>
             <p>Look at the name, reverse it then you get "you are hacked", such a cocky guy</p>
             <p className="warning-text">Always be extremely cautious with unexpected downloads, especially `.apk` files from unknown sources!</p>
             <button onClick={handleProceedToPostDownloadQuiz} className="next-button">Understand the risks (Proceed to Quiz)</button>
           </div>
         )}
         
-        {/* Post-Download Quiz (reintroduced) */}
+        {/* Post-Download Quiz (also reached if download finishes) */}
         {currentChoice2Display === 'postDownloadQuiz' && (
           <div className="quiz-container">
             <h3>How would you do if the download already started and finished?</h3>
@@ -281,7 +363,7 @@ function ChoiceResult2Page() {
           </div>
         )}
 
-        {/* Post-Download Quiz Feedback (reintroduced) */}
+        {/* Post-Download Quiz Feedback */}
         {currentChoice2Display === 'postDownloadQuizWin' && (
           <div className="quiz-feedback correct">
             <p>You Win!</p>
@@ -301,47 +383,93 @@ function ChoiceResult2Page() {
         {/* Phishing Form Page (triggered by Continue Download) */}
         {currentChoice2Display === 'phishingForm' && (
           <div className="phishing-form-container">
-            <p className="dialogue hacker form-intro">Hacker: The skin credit system is experiencing an issue. Don't worry, we'll compensate you directly with money.</p>
-            <p className="dialogue hacker form-intro">Please fill in your details below for a quick refund.</p>
-            
-            <form onSubmit={handleSubmitPhishingForm} className="phishing-form">
-              <div className="form-group">
-                <label htmlFor="bankAccount">Bank Account Number:</label>
-                <input 
-                  type="text" 
-                  id="bankAccount" 
-                  value={bankAccount}
-                  onChange={(e) => setBankAccount(e.target.value)}
-                  placeholder="e.g., 1234567890" 
-                  required 
-                />
+            {currentPhishingFormSubState === 'form' && (
+              <>
+                {/* Warning Icon - positioned absolutely */}
+                <div 
+                  className="warning-icon" 
+                  onClick={() => setCurrentPhishingFormSubState('warningPrompt')}
+                  title="Click for a hint!"
+                >
+                  !
+                </div>
+
+                <p className="dialogue hacker form-intro">Hacker: The skin credit system is experiencing an issue. Don't worry, we'll compensate you directly with money.</p>
+                <p className="dialogue hacker form-intro">Please fill in your details below for a quick refund.</p>
+                
+                <form onSubmit={handleSubmitPhishingForm} className="phishing-form">
+                  <div className="form-group">
+                    <label htmlFor="bankAccount">Bank Account Number:</label>
+                    <input 
+                      type="text" 
+                      id="bankAccount" 
+                      value={bankAccount}
+                      onChange={(e) => setBankAccount(e.target.value)}
+                      placeholder="e.g., 1234567890" 
+                      required 
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="cvv">CVV (on back of card):</label>
+                    <input 
+                      type="password"
+                      id="cvv" 
+                      value={cvv}
+                      onChange={(e) => setCvv(e.target.value)}
+                      placeholder="e.g., 123" 
+                      maxLength="4"
+                      required 
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="eWalletPin">E-wallet PIN:</label>
+                    <input 
+                      type="password"
+                      id="eWalletPin" 
+                      value={eWalletPin}
+                      onChange={(e) => setEWalletPin(e.target.value)}
+                      placeholder="e.g., 4-6 digits" 
+                      maxLength="6"
+                      required 
+                    />
+                  </div>
+                  <button type="submit" className="submit-button">Submit for Compensation</button>
+                </form>
+              </>
+            )}
+
+            {currentPhishingFormSubState === 'warningPrompt' && (
+              <div className="warning-prompt-box">
+                <p className="prompt-text">
+                  That was really a close call!
+                  <br/>Very Obvious already right? He asks for your important information.
+                  <br/>Don't ever share your financial information!
+                </p>
+                <div className="prompt-options">
+                  {/* Updated "Report to Google" section */}
+                  <button onClick={handleReportScamLink} className="prompt-button report-button">
+                    Do you know ? You can even report the phishing link to let more people know.
+                    <br/>
+                    You can report it to Google 
+                    <br/>
+                    <a href="https://safebrowsing.google.com/safebrowsing/report-url" target="_blank" rel="noopener noreferrer">
+                      [Click here]
+                    </a>
+                  </button>
+                  {/* "Share Experience" button (outcome message modified in handleShareExperience) */}
+                  <button onClick={handleShareExperience} className="prompt-button share-button">
+                    Share your experience to your friend.
+                  </button>
+                </div>
               </div>
-              <div className="form-group">
-                <label htmlFor="cvv">CVV (on back of card):</label>
-                <input 
-                  type="password"
-                  id="cvv" 
-                  value={cvv}
-                  onChange={(e) => setCvv(e.target.value)}
-                  placeholder="e.g., 123" 
-                  maxLength="4"
-                  required 
-                />
+            )}
+
+            {currentPhishingFormSubState === 'reportOutcome' && (
+              <div className="report-outcome-box">
+                <p className="outcome-text">{reportOutcomeMessage}</p>
+                <button onClick={() => setCurrentChoice2Display('options')} className="next-button">Back to conversation</button>
               </div>
-              <div className="form-group">
-                <label htmlFor="eWalletPin">E-wallet PIN:</label>
-                <input 
-                  type="password"
-                  id="eWalletPin" 
-                  value={eWalletPin}
-                  onChange={(e) => setEWalletPin(e.target.value)}
-                  placeholder="e.g., 4-6 digits" 
-                  maxLength="6"
-                  required 
-                />
-              </div>
-              <button type="submit" className="submit-button">Submit for Compensation</button>
-            </form>
+            )}
           </div>
         )}
 
@@ -360,75 +488,8 @@ function ChoiceResult2Page() {
           </div>
         )}
 
-        {/* Message for Option 2 (didn't click link initially) - remains unchanged */}
-        {currentChoice2Display === 'option2Message' && (
-          <div className="message-container">
-            <p>Yeah, you save money for your lunch!</p>
-            <p>Take care! You lose thousands while you click the suspicious link.</p>
-            <p>Your mom said if you get first 10 in next examination, she will reward you the skin <span className="god-message">[believe me, I am god]</span>.</p>
-            <button onClick={handleFinishPhishingQuizClick} className="next-button">Finish the quiz then I will cast a spell on your mom</button>
-          </div>
-        )}
-
-        {/* Phishing Quiz (from Option 2 path) - remains unchanged */}
-        {currentChoice2Display === 'quiz' && (
-          <div className="quiz-container">
-            <h3>Which of the following is/are not the phishing link?</h3>
-            <div className="quiz-options">
-              <label>
-                <input
-                  type="checkbox"
-                  name="phishing-quiz"
-                  value="a"
-                  checked={selectedPhishingAnswers.includes('a')}
-                  onChange={handlePhishingCheckboxChange}
-                />
-                a. https://paypaI.com (Note: 'I' is lowercase L)
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="phishing-quiz"
-                  value="b"
-                  checked={selectedPhishingAnswers.includes('b')}
-                  onChange={handlePhishingCheckboxChange}
-                />
-                b. https://tinyurl.com/maybank
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="phishing-quiz"
-                  value="c"
-                  checked={selectedPhishingAnswers.includes('c')}
-                  onChange={handlePhishingCheckboxChange}
-                />
-                c. https://spectrum.um.edu.my
-              </label>
-            </div>
-            <button onClick={handleSubmitPhishingQuiz} className="submit-button">Submit Answer</button>
-          </div>
-        )}
-
-        {/* Phishing Quiz Feedback - remains unchanged */}
-        {currentChoice2Display === 'correctAnswer' && (
-          <div className="quiz-feedback correct">
-            <p>Your win!</p>
-            <p>Congratulations, you correctly identified the safe link!</p>
-            <button onClick={() => setCurrentChoice2Display('options')} className="next-button">Back to conversation</button>
-          </div>
-        )}
-
-        {currentChoice2Display === 'incorrectAnswer' && (
-          <div className="quiz-feedback incorrect">
-            <p>Try again!</p>
-            <p>That's not quite right. Phishing links often look legitimate but have subtle differences or use URL shorteners to hide their true destination. Education domains (.edu.my) are generally trustworthy.</p>
-            <button onClick={handlePhishingTryAgain} className="try-again-button">Back to Quiz</button>
-          </div>
-        )}
-
       </div> {/* end conversation-box */}
-    </div> // end hacker-scenario-container
+    </div> 
   );
 }
 
