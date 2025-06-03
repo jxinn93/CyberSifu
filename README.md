@@ -6,4 +6,7 @@
 
 4)click the link
 
+5) type git pull to get update of the code
+   
 ping me if any problem
+
