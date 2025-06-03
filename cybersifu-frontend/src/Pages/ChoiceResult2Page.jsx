@@ -166,10 +166,10 @@ function ChoiceResult2Page() {
         {/* Kid's drawing */}
         <div className="kid-drawing-hacker-scenario">
           <pre>
-            {' |   --- |\n'}
-            {' |       |\n'}
-            {' |   --- |\n'}
-            {'    /|\\\n'}
+            {' | --- |\n'}
+            {' |     |\n'}
+            {' | --- |\n'}
+            {'   /|\\\n'}
             {'   / | \\\n'}
           </pre>
           <p className="character-name">Kid</p>
@@ -217,8 +217,8 @@ function ChoiceResult2Page() {
         {currentChoice2Display === 'option2Message' && (
           <div className="message-container">
             <p>Yeah, you save money for your lunch!</p>
-            <p>Take care! You lose thousands while you click the suspicious link.</p>
-            <p>Your mom said if you get first 10 in next examination, she will reward you the skin <span className="god-message">[believe me, I am god]</span>.</p>
+            <p>Watch out! You can lose thousands by clicking that dubious link.</p>
+            <p>Your mother mentioned that if you place in the top 10 in your next exam, she will give you the skin as a reward. <span className="god-message">[believe me, I am god]</span>.</p>
             <button onClick={handleFinishPhishingQuizClick} className="next-button">Finish the quiz then I will cast a spell on your mom</button>
           </div>
         )}
@@ -236,7 +236,7 @@ function ChoiceResult2Page() {
                   checked={selectedPhishingAnswers.includes('a')}
                   onChange={handlePhishingCheckboxChange}
                 />
-                a. https://paypaI.com (Note: 'I' is lowercase L)
+                a. https://paypaI.com
               </label>
               <label>
                 <input
@@ -307,7 +307,7 @@ function ChoiceResult2Page() {
           <div className="message-container loss-message">
             <p className="lose-text">You Lose!</p>
             <p>The suspicious download completed or you chose to continue it.</p>
-            <p>Look at the name, reverse it then you get "you are hacked", such a cocky guy</p>
+            <p>Check out the name: when you reverse it, you get “you are hacked.” What a cocky guy!</p>
             <p className="warning-text">Always be extremely cautious with unexpected downloads, especially `.apk` files from unknown sources!</p>
             <button onClick={handleProceedToPostDownloadQuiz} className="next-button">Understand the risks (Proceed to Quiz)</button>
           </div>
@@ -316,7 +316,7 @@ function ChoiceResult2Page() {
         {/* Post-Download Quiz (also reached if download finishes) */}
         {currentChoice2Display === 'postDownloadQuiz' && (
           <div className="quiz-container">
-            <h3>How would you do if the download already started and finished?</h3>
+            <h3>How would you do if the download already started and completed? </h3>
             <div className="quiz-options">
               <label>
                 <input
