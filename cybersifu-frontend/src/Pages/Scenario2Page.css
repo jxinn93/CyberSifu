@@ -1,0 +1,195 @@
+/* Force dark background and light text on the whole page */
+/* Apply full viewport height and center container horizontally and vertically */
+body, html, #root {
+    background-color: #121212 !important;
+    color: #00FF41 !important;  /* Hacker green font */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Flex center entire content */
+    display: flex;
+    justify-content: center;  /* horizontal center */
+    align-items: flex-start;  /* top align vertically, or use center for vertical center */
+    padding-top: 40px;        /* space from top */
+}
+
+
+/* Container with max width and full responsiveness */
+.email-simulation-container {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    max-width: 900px;  /* max width to keep it readable */
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px #000000aa; /* subtle glow for emphasis */
+}
+
+.inbox-view h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffcc00;
+}
+
+.email-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.email-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e1e1e;
+    border: 1px solid #2c2c2c;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.email-item span {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.email-item .sender {
+    flex: 1;
+    color: #90caf9;
+}
+
+.email-item .subject {
+    flex: 3;
+    color: #e0e0e0;
+}
+
+.email-item .date {
+    flex: 1;
+    text-align: right;
+    color: #a0a0a0;
+    font-size: 13px;
+}
+
+.email-item .tag {
+    background-color: #ff1744;
+    color: white;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 12px;
+    margin-left: 10px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    background-color: #2a2a2a;
+}
+
+.unread .subject {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.email-content {
+    animation: fadeIn 0.4s ease-in-out;
+    width: 100%;
+}
+
+.email-header .breadcrumbs {
+    color: #ffc107;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.email-details p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+.email-body {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px #00000040;
+}
+
+.phishing-link a {
+    color: #ff5722;
+    font-weight: bold;
+    word-break: break-all;
+}
+
+.hacker-reveal {
+    background-color: #2c003e;
+    padding: 16px;
+    border-left: 6px solid #d500f9;
+    margin-top: 30px;
+    border-radius: 4px;
+    color: #f8bbd0;
+}
+
+.hacker-message {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.quiz-section {
+    margin-top: 30px;
+    background-color: #1f1f1f;
+    padding: 16px;
+    border-radius: 6px;
+    border-left: 4px solid #03dac6;
+}
+
+.quiz-options label {
+    display: block;
+    margin: 8px 0;
+}
+
+.submit-button {
+    margin-top: 10px;
+    background-color: #03dac6;
+    border: none;
+    padding: 10px 20px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #00bfa5;
+}
+
+.security-tip {
+    margin-top: 25px;
+    padding: 12px;
+    background-color: #263238;
+    border-left: 4px solid #00e676;
+    color: #b9f6ca;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

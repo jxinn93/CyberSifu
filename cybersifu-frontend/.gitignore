@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+/src/Pages/Scanario3Page.css
+/src/Pages/Scenario2Page.css
+/src/Pages/Scenario2Page.jsx
+/src/Pages/Scenario3Page.jsx
+/src/components/BackButton.jsx
