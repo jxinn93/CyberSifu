@@ -19,7 +19,7 @@ body {
 
 /* Hacker-style heading */
 .cyber-heading {
-    font-size: 3rem;
+    font-size: 5rem;
     color: #00ff9c;
     margin-bottom: 3rem;
     text-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c;
@@ -32,7 +32,7 @@ button {
     color: #00ff9c;
     border: 2px solid #00ff9c;
     padding: 0.8rem 1.5rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin: 0.8rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
