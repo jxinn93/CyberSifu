@@ -19,6 +19,7 @@
     display: inline-block; /* Necessary for transform animation */
     padding-left: 100%; /* Starts the text off-screen to the right */
     animation: scrollDisclaimer 15s linear infinite; /* Adjust duration for speed */
+    font-size: 2.0em
 }
 
 .disclaimer-text p {
@@ -73,12 +74,12 @@
     background-color: black; /* Background is black */
     color: #0f0; /* Text "Handsome" is bright green */
     font-weight: bold;
-    font-size: 1.0em; /* Larger font */
+    font-size: 2.0em; /* Larger font */
     flex-shrink: 0;
 }
 
 .handsome-dialogue {
-    font-size: 1.3em; /* Larger font */
+    font-size: 1.5em; /* Larger font */
     color: #0f0; /* Dialogue text is bright green */
     margin-bottom: 0;
     text-align: left;
@@ -184,6 +185,7 @@
     margin-top: 50px; /* Increased */
     padding: 35px; /* Increased */
     border-top: 1px solid #eee; /* Light grey border */
+    font-size: 1.2em;
 }
 
 .choices h3 {
