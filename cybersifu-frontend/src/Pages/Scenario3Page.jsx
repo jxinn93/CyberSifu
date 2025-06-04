@@ -5,7 +5,7 @@ import './Scenario3Page.css'; // Link to your CSS file
 function Scenario3Page() {
     // New state to manage the progression of scenes
     const [currentScene, setCurrentScene] = useState('intro'); // 'intro', 'brochure', 'decision', 'transfer_step1', 'realization', 'awareness', 'result'
-
+    
     // Existing state for user's choice outcome
     const [choice, setChoice] = useState(null); // 'transferMoney', 'searchAndReport', 'realizedScam'
 
@@ -150,7 +150,7 @@ function Scenario3Page() {
                     </button>
                     {/* MODIFIED: Leads to new 'awareness' scene */}
                     <button onClick={() => { setChoice('searchAndReport'); setCurrentScene('awareness'); }}>
-                        Hmmmm, why don't have any company's name? Let me search online first.
+                        Hmmmm, why don't have any company's name? Let me search online first. 
                     </button>
                 </section>
             )}
@@ -160,7 +160,7 @@ function Scenario3Page() {
                 <div className="transfer-step1-section">
                     <p className="scammer-dialogue">Scammer said: "Transfer RM200 to this account through e-wallet and you can start your easy way to be millionaire soon."</p>
                     <p className="account-holder-info">You found that the account holder name is "Ali bin Abu"</p>
-
+                    
                     <h4 className="last-chance-heading">Last chance!</h4>
                     <div className="transfer-options-buttons">
                         {/* Leads to final 'transferMoney' result (loss) */}
@@ -215,7 +215,7 @@ function Scenario3Page() {
                     <p><strong>Lesson:</strong> Checking before trusting can save you from losing money.</p>
                 </div>
             )}
-
+            
             {/* Educational Outcome & Actionable Advice - Always show if in 'result' scene, and handles quiz */}
             {currentScene === 'result' && (
                 <section className="education">

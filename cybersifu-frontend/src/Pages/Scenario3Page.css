@@ -64,16 +64,16 @@
 }
 
 .handsome-box {
-    border: 6px solid #0f0;
-    width: 150px;
-    height: 80px;
+    border: 6px solid #0f0; /* Green border */
+    width: 150px; /* Larger */
+    height: 80px; /* Larger */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color: #0f0;
+    background-color: black; /* Background is black */
+    color: #0f0; /* Text "Handsome" is bright green */
     font-weight: bold;
-    font-size: 1.0em; /* smaller font */
+    font-size: 1.7em; /* Larger font */
     flex-shrink: 0;
 }
 
