@@ -41,7 +41,7 @@ function ChoiceResult1Page({navigate}) {
               </pre>
             </div>
             <p>River God asks</p>
-            <p>Did you lose this golden weapon skin?</p>
+            <p>How would you purchase the skin? </p>
             <div className="options">
               <button onClick={handleOption1Click}> [1] Banner in the Game Hompage [Limited Offer!!!]</button>
               <button onClick={handleOption2Click}> [2] A message in chat channel of the game [Purchase Skin with lower price, 100% Authentic, no extra fee!!!]</button>
@@ -55,7 +55,7 @@ function ChoiceResult1Page({navigate}) {
             <p>But make sure you get your dad & mom permission and you are over 18.</p>
             <p>
               <a
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" // Rickroll URL
+                href="https://www.bilibili.com/video/BV1UT42167xb/?share_source=copy_web&vd_source=401cb64a04676b30865e15c9909a47b7" // Rickroll URL
                 target="_blank" // Opens in a new tab
                 rel="noopener noreferrer" // Security best practice for target="_blank"
                 onClick={handleRewardLinkClick}
@@ -71,7 +71,7 @@ function ChoiceResult1Page({navigate}) {
           <div className="rickroll-message-container">
             <p className="rickroll-text">Hah, you lose!</p>
             <p className="rickroll-text">Always Stay Alert!</p>
-            <p className="rickroll-text">Don't click anything link that looks suspicious, next time won't be rickroll anymore!</p>
+            <p className="rickroll-text">Don't click any link that looks suspicious, You never know what is behind it!</p>
           </div>
         )}
       </div>
