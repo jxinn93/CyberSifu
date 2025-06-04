@@ -73,7 +73,7 @@
     background-color: black; /* Background is black */
     color: #0f0; /* Text "Handsome" is bright green */
     font-weight: bold;
-    font-size: 1.7em; /* Larger font */
+    font-size: 1.0em; /* Larger font */
     flex-shrink: 0;
 }
 
