@@ -1,121 +1,179 @@
 /* src/Pages/Scenario3Page.css */
 
-.scenario-page {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    background-color: #fff;
-    text-align: center; /* Center main content */
+/* New style for the scrolling disclaimer wrapper */
+.disclaimer-wrapper {
+    overflow: hidden; /* Hides overflowing text */
+    width: 100%;
+    background-color: #333; /* Dark background */
+    color: #0f0; /* Green text */
+    padding: 10px 0; /* Padding top/bottom, no horizontal padding */
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    border: 1px dashed #0f0;
+    white-space: nowrap; /* Ensures text stays on a single line */
 }
 
-/* REMOVED: .scenario-page h2 styling as the h2 itself is removed */
+/* Style for the text content inside the disclaimer for animation */
+.disclaimer-text {
+    display: inline-block; /* Necessary for transform animation */
+    padding-left: 100%; /* Starts the text off-screen to the right */
+    animation: scrollDisclaimer 15s linear infinite; /* Adjust duration for speed */
+}
+
+.disclaimer-text p {
+    margin: 0; /* Remove default paragraph margins */
+    display: inline; /* Keep paragraphs on one line for seamless scroll */
+}
+
+/* Keyframe animation for horizontal scrolling */
+@keyframes scrollDisclaimer {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); } /* Scrolls the entire width of the content */
+}
+
+
+.scenario-page {
+    font-family: Arial, sans-serif;
+    max-width: 950px; /* Increased */
+    margin: 40px auto; /* Increased */
+    padding: 30px; /* Increased */
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Slightly larger */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Increased shadow */
+    background-color: black; /* Main background is black */
+    color: #0f0; /* Default text color is bright green */
+    text-align: center;
+}
 
 .intro-section {
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 25px; /* Increased */
+    margin-bottom: 30px; /* Increased */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.handsome-character-display {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px; /* Increased */
+    margin-bottom: 25px; /* Increased */
+    width: 100%;
+    justify-content: flex-start;
 }
 
 .handsome-box {
-    border: 2px solid #333;
-    width: 120px;
-    height: 60px;
+    border: 6px solid #0f0; /* Green border */
+    width: 150px; /* Larger */
+    height: 80px; /* Larger */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: black; /* Background is black */
+    color: #0f0; /* Text "Handsome" is bright green */
     font-weight: bold;
-    margin: 0 auto 15px auto; /* Center the box */
+    font-size: 1.7em; /* Larger font */
+    flex-shrink: 0;
 }
 
 .handsome-dialogue {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 20px;
+    font-size: 1.3em; /* Larger font */
+    color: #0f0; /* Dialogue text is bright green */
+    margin-bottom: 0;
+    text-align: left;
+    flex-grow: 1;
+    line-height: 1.6; /* Improved readability */
 }
 
 .next-button,
 .choices button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    background-color: black; /* Black background */
+    color: #0f0; /* Green text */
+    padding: 20px 40px; /* Increased padding */
+    border: 2px solid #0f0; /* Green border */
+    border-radius: 8px; /* Slightly larger */
     cursor: pointer;
-    font-size: 1em;
-    margin: 10px;
-    transition: background-color 0.3s ease;
+    font-size: 1.5em; /* Increased font size */
+    margin: 15px; /* Consistent margin */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Added color transition */
 }
 
 .next-button:hover,
 .choices button:hover {
-    background-color: #0056b3;
+    background-color: #006600; /* Darker green on hover */
+    border-color: #00ff00; /* Brighter green border on hover */
+    color: white; /* White text on hover for contrast */
 }
 
 .brochure-section {
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 25px; /* Increased */
+    margin-bottom: 30px; /* Increased */
 }
 
 .brochure-content {
-    border: 2px dashed #007bff;
-    padding: 25px;
-    max-width: 650px;
-    margin: 20px auto;
-    background-color: #e6f7ff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Align brochure content to left */
+    border: 3px dashed #0f0; /* Changed: Green dashed border */
+    padding: 35px; /* Increased */
+    max-width: 750px; /* Increased */
+    margin: 30px auto; /* Increased */
+    background-color: rgba(0, 50, 0, 0.7); /* Changed: Dark green translucent background */
+    border-radius: 10px; /* Slightly larger */
+    box-shadow: 0 6px 12px rgba(0, 255, 0, 0.2); /* Changed: Green shadow */
+    text-align: left;
+    color: #0f0; /* Changed: Bright green text for readability on dark green background */
 }
 
 .brochure-content h3 {
-    color: #0056b3;
-    margin-bottom: 15px;
+    color: #0f0; /* Changed: Green heading */
+    margin-bottom: 20px; /* Increased */
+    font-size: 1.8em; /* Larger font */
 }
 
 .job-offer-text {
-    font-size: 1.1em;
-    line-height: 1.6;
+    font-size: 1.4em; /* Larger font */
+    line-height: 1.7; /* Improved readability */
 }
 
 .job-offer-text strong {
     font-weight: bold;
 }
 
-.professional-account-note {
-    margin-top: 15px;
+.brochure-author { /* Style for the author line */
     font-style: italic;
-    color: #555;
+    color: #0f0;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.1em;
 }
 
 .testimonials-container {
-    margin-top: 25px;
-    border-top: 1px solid #b3e0ff;
-    padding-top: 20px;
+    margin-top: 35px; /* Increased */
+    border-top: 2px solid #0f0; /* Changed: Green border top */
+    padding-top: 25px; /* Increased */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 20px; /* Increased */
 }
 
 .testimonials-container h4 {
     width: 100%;
     text-align: center;
-    color: #0056b3;
-    margin-bottom: 10px;
+    color: #0f0; /* Changed: Green heading */
+    margin-bottom: 15px; /* Increased */
+    font-size: 1.5em; /* Larger font */
 }
 
 .testimonial-item {
-    border: 1px solid #a3d900;
-    padding: 12px;
-    border-radius: 5px;
-    background-color: #f0ffdb;
-    width: 180px;
+    border: 2px solid #0f0; /* Changed: Green border */
+    padding: 18px; /* Increased */
+    border-radius: 8px; /* Slightly larger */
+    background-color: rgba(0, 70, 0, 0.5); /* Changed: Darker green translucent background */
+    width: 220px; /* Larger */
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 6px rgba(0, 255, 0, 0.1); /* Changed: Green shadow */
+    font-size: 1.1em; /* Larger font */
+    color: #0f0; /* Changed: Bright green text */
 }
 
 .testimonial-item p {
@@ -123,58 +181,306 @@
 }
 
 .choices {
-    margin-top: 30px;
-    padding: 20px;
-    border-top: 1px solid #eee;
+    margin-top: 50px; /* Increased */
+    padding: 35px; /* Increased */
+    border-top: 1px solid #eee; /* Light grey border */
 }
 
 .choices h3 {
-    color: #333;
-    margin-bottom: 20px;
+    color: #0f0; /* Green heading for choices */
+    margin-bottom: 35px; /* Increased */
+    font-size: 2em; /* Increased */
+}
+
+/* Styles for the intermediate transfer step */
+.transfer-step1-section {
+    padding: 40px; /* Increased */
+    margin-bottom: 40px; /* Increased */
+    background-color: rgba(0, 50, 0, 0.7); /* Dark green background */
+    border: 2px solid #0f0; /* Green border */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.transfer-step1-section .scammer-dialogue {
+    color: #0f0; /* Bright green text */
+    font-style: italic;
+    margin-bottom: 25px; /* Increased */
+    text-align: center;
+    font-size: 1.6em; /* Increased */
+    line-height: 1.6;
+}
+
+.transfer-step1-section .account-holder-info {
+    color: #0f0; /* Bright green text */
+    font-size: 1.4em; /* Increased */
+    margin-top: 20px; /* Increased */
+    margin-bottom: 30px; /* Increased */
+    text-align: center;
+    font-weight: bold;
+}
+
+.transfer-step1-section .last-chance-heading {
+    color: #0f0; /* Bright green text */
+    font-size: 2.2em; /* Increased */
+    margin-top: 30px; /* Increased */
+    margin-bottom: 25px; /* Increased */
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.6); /* Slightly stronger shadow */
+}
+
+.transfer-options-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased */
+    margin-top: 30px; /* Increased */
+    max-width: 650px; /* Increased width for buttons */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .result {
-    margin-top: 30px;
-    padding: 25px;
-    border: 1px solid #ffc107;
-    border-radius: 8px;
-    background-color: #fffde7;
-    color: #333;
+    margin-top: 40px; /* Increased */
+    padding: 35px; /* Increased */
+    border: 1px solid #ffc107; /* Orange border */
+    border-radius: 10px; /* Slightly larger */
+    background-color: #fffde7; /* Light yellow background */
+    color: #333; /* Dark grey text for readability */
     text-align: left;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Increased shadow */
+    font-size: 1.2em; /* Larger font */
+}
+
+/* Styles for the "lose" message */
+.result .lose-text {
+    color: red; /* Make it stand out for "lose" */
+    font-weight: bold;
+    font-size: 1.3em;
+    animation: pulseRed 1s infinite alternate; /* Simple animation */
+    display: inline-block; /* Needed for text-shadow animation */
+}
+
+@keyframes pulseRed {
+    from { text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); }
+    to { text-shadow: 0 0 15px rgba(255, 0, 0, 1); }
+}
+
+/* Styles for the "comfort" message */
+.result .comfort-message {
+    font-style: italic;
+    color: #00ff00; /* Bright green comfort */
+    margin-top: 20px;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+/* Styles for the strong tag within comfort message */
+.comfort-message strong {
+    font-weight: bold; /* Ensure it's bold */
+    /* Add any other specific styles if desired, e.g.: */
+    /* color: #ffeb3b; */ /* A different shade of green/yellow */
+    /* text-shadow: 0 0 8px rgba(0, 255, 0, 0.7); */
 }
 
 .result p {
-    margin-bottom: 10px;
-    line-height: 1.5;
+    margin-bottom: 15px; /* Increased */
+    line-height: 1.6; /* Improved readability */
 }
 
 .result strong {
-    color: #d39e00; /* This remains orange/gold as it wasn't specified to change */
+    color: #d39e00; /* Orange/gold color */
 }
 
-.education {
+/* Styles for the Realization Section (for "Type-C/Type-M" path) */
+.realization-section {
+    padding: 40px;
+    margin-bottom: 40px;
+    background-color: rgba(0, 50, 0, 0.7); /* Dark green background */
+    border: 2px solid #0f0; /* Green border */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    color: #0f0; /* Bright green text */
+}
+
+.realization-message {
+    font-size: 1.8em; /* Large text */
+    font-weight: bold;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+}
+
+.challenge-text {
+    font-size: 1.5em;
     margin-top: 30px;
-    padding: 25px;
+    margin-bottom: 30px;
+}
+
+/* NEW: Styles for the Awareness Section (for "search online first" path) */
+.awareness-section {
+    padding: 40px;
+    margin-bottom: 40px;
+    background-color: rgba(0, 50, 0, 0.7); /* Dark green background */
+    border: 2px solid #0f0; /* Green border */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    color: #0f0; /* Bright green text */
+}
+
+.awareness-alert {
+    font-size: 1.8em; /* Large text for alerts */
+    font-weight: bold;
+    color: #ff0000; /* Red for alert */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.awareness-advice {
+    font-size: 1.4em; /* Slightly smaller for advice */
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.awareness-quiz-button { /* Use the existing next-button style for the button */
+    margin-top: 30px;
+    padding: 18px 35px; /* Consistent with other large buttons */
+    font-size: 1.4em; /* Consistent with other large buttons */
+    font-weight: bold;
+}
+
+
+/* Styles for Quiz Section */
+.education {
+    margin-top: 40px;
+    padding: 35px;
     border: 1px solid #28a745;
-    border-radius: 8px;
-    background-color: #e6ffe6;
+    border-radius: 10px;
+    background-color: #e6ffe6; /* Base for education, will adapt for quiz */
     color: #333;
     text-align: left;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    font-size: 1.2em;
+}
+
+/* When quiz is active, make the background black/green to match theme */
+.education .quiz-container,
+.education .quiz-result-section {
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for quiz */
+    padding: 30px;
+    border-radius: 10px;
+    color: #0f0; /* Bright green text */
+    text-align: center;
+    border: 2px solid #0f0;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
 }
 
 .education h3 {
-    color: #333; 
+    /* Ensure heading is green inside quiz background */
+    color: #0f0;
+    margin-bottom: 20px;
+}
+
+.start-quiz-button {
+    margin-top: 30px;
+    padding: 18px 35px; /* Slightly larger padding for this button */
+    font-size: 1.4em; /* Slightly larger font for this button */
+    font-weight: bold;
+}
+
+.question-section {
+    margin-bottom: 25px;
+}
+
+.question-count {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #999; /* Subtle count */
+}
+
+.question-text {
+    font-size: 1.8em; /* Large question text */
+    font-weight: bold;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+}
+
+.answer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between answer buttons */
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.quiz-option-button {
+    background-color: black;
+    color: #0f0;
+    padding: 15px 25px;
+    border: 2px solid #0f0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.quiz-option-button:hover:not(:disabled) {
+    background-color: #006600;
+    border-color: #00ff00;
+    color: white;
+}
+
+/* Feedback for selected option */
+.quiz-option-button.correct-option {
+    background-color: #28a745; /* Green for correct */
+    border-color: #28a745;
+    color: white;
+}
+
+.quiz-option-button.incorrect-option {
+    background-color: #dc3545; /* Red for incorrect */
+    border-color: #dc3545;
+    color: white;
+}
+
+.quiz-option-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.feedback-message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #00ff00; /* Green for feedback */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+}
+
+.quiz-result-section {
+    /* Inherits general quiz container styles */
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.quiz-result-section p {
+    font-size: 1.3em;
+    line-height: 1.5;
     margin-bottom: 15px;
 }
 
-.education ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    padding-left: 0;
+.quiz-result-section .next-button { /* Reusing next-button for quiz restart */
+    margin-top: 20px;
 }
 
-.education ul li {
-    margin-bottom: 8px;
+.win-message { /* Style for "You win!" */
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #00ff00; /* Bright green for win */
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    animation: pulseGreen 1s infinite alternate;
+}
+
+@keyframes pulseGreen {
+    from { text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
+    to { text-shadow: 0 0 15px rgba(0, 255, 0, 1); }
 }
