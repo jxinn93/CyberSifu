@@ -28,7 +28,7 @@ function AladdinLampDisplay({ navigate }) { // <--- Ensure navigate is destructu
       </div>
       {/* Changed class name here */}
       <div className="aladdin-dialogue-frame">
-        <p> Bling Bling ✨ I can help you ~</p>
+        <p> Bling Bling ✨I heard you, kid~ Don't worry, I will help you. </p>
       </div>
       {/*Single "Next" button to naviagte */}
       <button onClick = {handleNextClick}>Next</button>

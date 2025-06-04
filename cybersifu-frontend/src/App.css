@@ -1,3 +1,22 @@
+* {
+  font-size: 1.3rem; /* Larger base font */
+  transition: all 0.3s ease-in-out;
+}
+
+body, html, #root {
+  background-color: #000000 !important;
+  color: #00FF41 !important;
+  font-family: 'Courier New', Courier, monospace;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;

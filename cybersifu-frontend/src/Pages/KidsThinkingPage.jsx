@@ -27,7 +27,7 @@ function KidsThinkingPage({ navigate }) { // <--- MAKE SURE 'navigate' is here
           </div>
         </div>
         <div className="thinking-frame">
-          <p>Hmmm, the XiaoMing weapon skin in LUL looks so cool! I wish I have it too!</p>
+          <p>Wahh, XiaoMing's have the super awesome skin for the hero! I wish I can have it too!</p>
         </div>
         {!showAladdin && (
           <button onClick={handleNextClick}>Next</button>
