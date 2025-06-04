@@ -1,0 +1,61 @@
+/* Dark hacker theme base */
+body {
+    background-color: #0f0f0f;
+    color: #00ff9c;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+}
+
+/* Centering content */
+.homepage-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Hacker-style heading */
+.cyber-heading {
+    font-size: 3rem;
+    color: #00ff9c;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c;
+    letter-spacing: 3px;
+}
+
+/* Hacker button style */
+button {
+    background-color: transparent;
+    color: #00ff9c;
+    border: 2px solid #00ff9c;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    margin: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 0 5px #00ff9c, 0 0 15px #00ff9c10;
+}
+
+button:hover {
+    background-color: #00ff9c;
+    color: #0f0f0f;
+    box-shadow: 0 0 20px #00ff9c, 0 0 30px #00ff9c;
+    transform: scale(1.05);
+}
+
+/* Optional flicker animation for effect */
+@keyframes flicker {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+.cyber-heading,
+button {
+    animation: flicker 1.5s infinite;
+}
