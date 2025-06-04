@@ -18,23 +18,19 @@ body {
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
     color: #00ff00;
     text-shadow: 0 0 10px #28a745;
 }
 
-.quiz-question {
-    font-size: 1.4rem;
-    margin: 1rem 0;
-    color: #ffffff;
-}
 
 .quiz-options {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-top: 1rem;
+    font-size: 1.5rem;
 }
 
 .quiz-option {
@@ -62,7 +58,7 @@ body {
 .feedback-message {
     font-weight: bold;
     margin-top: 1rem;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 .feedback-correct {
@@ -147,7 +143,7 @@ body {
 
 /* Result Page */
 .result-message {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-top: 2rem;
     color: #00ffcc;
     text-shadow: 0 0 5px #00ffcc;
@@ -221,7 +217,7 @@ body {
 
 .label {
     color: #aaa;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
     font-style: italic;
 }
@@ -273,10 +269,12 @@ body {
 
 .caller-side .speech-bubble {
     animation-delay: 0.3s;
+    font-size: 1.0em;
 }
 
 .receiver-side .speech-bubble {
     animation-delay: 1.2s;
+    font-size: 1.0em;
 }
 
 @keyframes blinkGlow {
@@ -289,12 +287,20 @@ body {
         text-shadow: none;
     }
 }
+.thankyou-section{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #f2f4f2;
+    text-shadow: 0 0 10px #28a745;
+}
 
 .ring-ring {
     animation: blinkGlow 1.2s infinite;
     font-weight: bold;
     color: #ff5252;
+    font-size: 1.5em;
 }
+
 
 
 .scam-realization {
@@ -302,6 +308,7 @@ body {
     color: #ff8888;
     font-weight: bold;
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .lesson {
@@ -309,6 +316,7 @@ body {
     color: #ffcc00;
     font-weight: bold;
     text-align: center;
+    font-size: 1.5rem;
 }
 .search-scene {
     padding: 1.5rem;
@@ -350,6 +358,7 @@ body {
     color: #0f0;
     font-weight: bold;
     word-break: break-word;
+    font-size: 1.5rem;
 }
 
 .search-results {
@@ -362,7 +371,7 @@ body {
 .result-item {
     padding: 0.5rem 0;
     border-bottom: 1px solid #333;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
 }
 
 .result-item:last-child {
@@ -386,9 +395,15 @@ body {
 }
 
 .quiz-question {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #00ff7f;
+}
+
+.quiz-form{
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #ecf4f0;
 }
 
 .quiz-form label {
