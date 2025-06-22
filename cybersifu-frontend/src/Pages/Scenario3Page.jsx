@@ -91,7 +91,7 @@ function Scenario3Page() {
             {/* Disclaimer at the very top with scrolling effect */}
             <div className="disclaimer-wrapper">
                 <div className="disclaimer-text">
-                    <p>No racist, sincerely no racist, for example purpose only. Both racial types are scammers in this case.</p>
+                    <p>No racism, genuinely no racism, just for illustrative purposes. In this instance, both racial types are fraudsters.</p>
                 </div>
             </div>
 
@@ -158,7 +158,7 @@ function Scenario3Page() {
             {/* Intermediate step for 'transferMoney' choice */}
             {currentScene === 'transfer_step1' && (
                 <div className="transfer-step1-section">
-                    <p className="scammer-dialogue">Scammer said: "Transfer RM200 to this account through e-wallet and you can start your easy way to be millionaire soon."</p>
+                    <p className="scammer-dialogue">DaMing said: "Transfer RM200 to my account through e-wallet and you can start your easy way to be millionaire soon."</p>
                     <p className="account-holder-info">You found that the account holder name is "Ali bin Abu"</p>
                     
                     <h4 className="last-chance-heading">Last chance!</h4>
@@ -169,7 +169,7 @@ function Scenario3Page() {
                         </button>
                         {/* Leads to new 'realization' scene */}
                         <button onClick={() => { setChoice('realizedScam'); setCurrentScene('realization'); }} className="choices button">
-                            Why the post seem like type-C's post but the account name is type-M
+                            wait2, 'DaMing' wants the cash, but 'Ali bin Abu' is the recipient? Is this a test, or am I missing something brilliantly obvious?
                         </button>
                     </div>
                 </div>
