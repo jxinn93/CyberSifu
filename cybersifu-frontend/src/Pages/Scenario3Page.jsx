@@ -211,7 +211,7 @@ function Scenario3Page() {
             {currentScene === 'result' && choice === 'searchAndReport' && (
                 <div className="result">
                     <p>You Google the job name and find posts from others who were scammed.</p>
-                    <p>You report the Instagram page and warn your friend.</p>
+                    <p>You report the Facebook page and warn your friend.</p>
                     <p><strong>Lesson:</strong> Checking before trusting can save you from losing money.</p>
                 </div>
             )}

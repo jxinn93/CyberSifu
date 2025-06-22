@@ -55,7 +55,7 @@ function ChoiceResult1Page({navigate}) {
             <p>But make sure you get your dad & mom permission and you are over 18.</p>
             <p>
               <a
-                href="https://www.bilibili.com/video/BV1UT42167xb/?share_source=copy_web&vd_source=401cb64a04676b30865e15c9909a47b7" // Rickroll URL
+                href="https://www.bilibili.com/video/BV1eS4y157Ey/?spm_id_from=333.1387.homepage.video_card.click&vd_source=9e2c2b1d8aed7e525afb70cbed8872bd" // Rickroll URL
                 target="_blank" // Opens in a new tab
                 rel="noopener noreferrer" // Security best practice for target="_blank"
                 onClick={handleRewardLinkClick}
