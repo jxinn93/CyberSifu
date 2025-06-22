@@ -114,17 +114,18 @@ function App() {
         style={{ // Inline styles for quick placement. Consider moving these to App.css for larger projects.
           position: 'fixed', // Keeps the button in place when scrolling
           top: '15px',       // Distance from the top
-          right: '15px',     // Distance from the right
+          left: '15px',     // Distance from the left
           zIndex: 1000,      // Ensures the button is on top of other content
           padding: '8px 12px',
-          backgroundColor: 'rgb(0, 255, 156)', /* A friendly blue */
-          color: 'white',
-          border: 'none',
+          backgroundColor: 'rgb(29, 28, 28)', 
+          color:' rgb(0, 255, 156)',
+          borderColor:'10px, rgb(0, 255, 156)',
           borderRadius: '5px',
           cursor: 'pointer',
           fontSize: '14px',
           fontWeight: 'bold',
           boxShadow: '0 2px 4px rgba(0,0,0,0.2)' /* Subtle shadow */
+          
         }}
       >
         {/* Dynamically change button text based on music state */}
